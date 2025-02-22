@@ -5,8 +5,8 @@ import swaggerUi from "swagger-ui-express";
 import runnerRoutes from "./routes/runner.routes";
 
 const app: Application = express();
-const port = 3000
 
+//export default app;
 app.use(express.json());
 
 // 1. Configuration de Swagger (génération du swagger.json)
@@ -42,11 +42,7 @@ app.use("/api/runners", runnerRoutes);
 
 
 app.get('/', (req, res) => {
-  res.send("Hello From Express and Typescript")
+  res.redirect(301, '/api-docs');
 })
 
-
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-  console.log(`Swagger Docs available at http://localhost:${port}/api-docs`)
-})
+export default app;
